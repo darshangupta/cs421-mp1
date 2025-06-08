@@ -35,12 +35,19 @@ mytake n (x:xs) = x : mytake (n-1) xs
 --- ### mydrop
 
 -- don't forget to put the type declaration or you will lose points!
-mydrop = undefined
+mydrop :: Int -> [a] -> [a]
+mydrop n xs | n <= 0 = xs
+mydrop _ [] = []
+mydrop n (_:xs) = mydrop (n-1) xs
 
 --- ### rev
 
 -- don't forget to put the type declaration or you will lose points!
-rev = undefined
+rev :: [a] -> [a]
+rev xs = rev' xs []
+  where
+    rev' [] acc = acc
+    rev' (x:xs) acc = rev' xs (x:acc)
 
 --- ### app
 
